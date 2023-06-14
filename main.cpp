@@ -31,6 +31,10 @@ int main(int argc, char *argv[]) {
       if (event.type == SDL_MOUSEMOTION) {
         std::cout << "Mouse has been moved\n";
       }
+
+      if (event.type == SDL_KEYDOWN) {
+        std::cout << event.key.keysym.sym << " pressed\n";
+      }
     }
   }
 
