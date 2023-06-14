@@ -27,6 +27,10 @@ int main(int argc, char *argv[]) {
       if (event.type == SDL_QUIT) {
         gameIsRunning = false;
       }
+
+      if (event.type == SDL_MOUSEMOTION) {
+        std::cout << "Mouse has been moved\n";
+      }
     }
   }
 
