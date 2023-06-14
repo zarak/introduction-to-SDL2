@@ -11,7 +11,7 @@
       in
       {
         devShells.default = with pkgs; mkShell {
-          buildInputs = [ SDL2 ];
+          buildInputs = [ SDL2 glxinfo ];
         };
       }
     );
