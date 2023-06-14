@@ -35,6 +35,10 @@ int main(int argc, char *argv[]) {
       if (event.type == SDL_KEYDOWN) {
         std::cout << event.key.keysym.sym << " pressed\n";
       }
+
+      if (event.key.keysym.sym == SDLK_q) {
+        gameIsRunning = false;
+      }
     }
   }
 
