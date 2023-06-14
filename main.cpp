@@ -17,7 +17,18 @@ int main(int argc, char *argv[]) {
   window =
       SDL_CreateWindow("C++ SDL2 Window", 0, 0, 640, 480, SDL_WINDOW_SHOWN);
 
-  SDL_Delay(3000);
+  // Infinite loop for our application
+  bool gameIsRunning = true;
+  while (gameIsRunning) {
+    SDL_Event event;
+    // Start our event loop
+    while (SDL_PollEvent(&event)) {
+      // Handle each specific event
+      if (event.type == SDL_QUIT) {
+        gameIsRunning = false;
+      }
+    }
+  }
 
   SDL_DestroyWindow(window);
   SDL_Quit();
