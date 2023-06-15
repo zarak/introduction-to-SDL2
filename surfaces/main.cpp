@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
   SDL_Window *window = nullptr;
 
   // Grab the window surface
-  SDL_Surface *screen;
+  SDL_Surface *screen = nullptr;
 
   // Typically we want error checking like this.
   // Not that tutorials often omit these detais.
