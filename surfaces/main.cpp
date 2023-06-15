@@ -38,13 +38,13 @@ int main(int argc, char *argv[]) {
       // Handle each specific event
       if (event.type == SDL_QUIT) {
         gameIsRunning = false;
-      }
+      } else if (event.type == SDL_MOUSEBUTTONDOWN) {
+        if (event.button.button == SDL_BUTTON_LEFT) {
+          std::cout << "Left mouse was pressed\n";
 
-      if (event.button.button == SDL_BUTTON_LEFT) {
-        std::cout << "Left mouse was pressed\n";
-
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_FillRect(screen, NULL, 0);
+          SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+          SDL_FillRect(screen, NULL, 0);
+        }
       }
     }
   }
