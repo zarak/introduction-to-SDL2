@@ -22,17 +22,9 @@ int main(int argc, char *argv[]) {
 
   screen = SDL_GetWindowSurface(window);
 
-  SDL_Surface *image = nullptr;
-  image = SDL_LoadBMP("images/out.bmp");
-  SDL_BlitSurface(image, NULL, screen, NULL);
-  SDL_FreeSurface(image);
-  SDL_UpdateWindowSurface(window);
-
   // OpenGL graphics context
   SDL_GLContext context;
   context = SDL_GL_CreateContext(window);
-
-  // Setup our function pointers
 
   // Infinite loop for our application
   bool gameIsRunning = true;
@@ -41,25 +33,16 @@ int main(int argc, char *argv[]) {
     // Start our event loop
     while (SDL_PollEvent(&event)) {
       // Handle each specific event
-      if (event.type == SDL_QUIT) {
+      if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_q) {
         gameIsRunning = false;
       }
 
-      if (event.type == SDL_MOUSEMOTION) {
-        std::cout << "Mouse has been moved\n";
-      }
-
-      if (event.type == SDL_KEYDOWN) {
-        std::cout << event.key.keysym.sym << " pressed\n";
-      }
-
-      if (event.key.keysym.sym == SDLK_q) {
-        gameIsRunning = false;
-      }
-
-      const Uint8 *state = SDL_GetKeyboardState(NULL);
-      if (state[SDL_SCANCODE_RIGHT]) {
-        std::cout << "Right arrow key is pressed\n";
+      if (event.button.button == SDL_BUTTON_LEFT) {
+        SDL_LockSurface(screen);
+        std::cout << "Left mouse was pressed\n";
+        SDL_memset(screen->pixels, 255, screen->h * screen->pitch);
+        SDL_UnlockSurface(screen);
+        SDL_UpdateWindowSurface(window);
       }
     }
   }
