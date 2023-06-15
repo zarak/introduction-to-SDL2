@@ -25,6 +25,9 @@ int main(int argc, char *argv[]) {
   window =
       SDL_CreateWindow("C++ SDL2 Window", 0, 0, 640, 480, SDL_WINDOW_OPENGL);
 
+  SDL_GLContext context;
+  context = SDL_GL_CreateContext(window);
+
   // Infinite loop for our application
   bool gameIsRunning = true;
   while (gameIsRunning) {
