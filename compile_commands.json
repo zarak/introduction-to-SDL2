@@ -1,0 +1,16 @@
+[
+  {
+    "arguments": [
+      "/nix/store/7wkshj58fcsl1f3zyi67qsxgl1p8nki1-gcc-wrapper-12.2.0/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-I./glad/include",
+      "-o",
+      "prog",
+      "main.cpp"
+    ],
+    "directory": "/home/zarak/Courses/introduction-to-SDL2",
+    "file": "/home/zarak/Courses/introduction-to-SDL2/main.cpp",
+    "output": "/home/zarak/Courses/introduction-to-SDL2/prog"
+  }
+]
