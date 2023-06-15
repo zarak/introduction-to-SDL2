@@ -25,12 +25,17 @@ int main(int argc, char *argv[]) {
   window =
       SDL_CreateWindow("C++ SDL2 Window", 0, 0, 640, 480, SDL_WINDOW_OPENGL);
 
+  // OpenGL graphics context
   SDL_GLContext context;
   context = SDL_GL_CreateContext(window);
+
+  // Setup our function pointers
+  gladLoadGLLoader(SDL_GL_GetProcAddress);
 
   // Infinite loop for our application
   bool gameIsRunning = true;
   while (gameIsRunning) {
+    glViewport(0, 0, 640, 480);
     SDL_Event event;
     // Start our event loop
     while (SDL_PollEvent(&event)) {
@@ -56,6 +61,13 @@ int main(int argc, char *argv[]) {
         std::cout << "Right arrow key is pressed\n";
       }
     }
+
+    // Where are we calling these functions from?
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+
+    // Why did I need this?
+    SDL_GL_SwapWindow(window);
   }
 
   SDL_DestroyWindow(window);

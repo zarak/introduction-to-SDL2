@@ -2,6 +2,7 @@
 result
 prog
 SDL2_Tutorials
+.gdb_history
 
 ### https://raw.github.com/github/gitignore/991e760c1c6d50fdda246e0178b9c58b06770b90/C++.gitignore
 
