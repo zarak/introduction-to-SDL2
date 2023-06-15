@@ -6,6 +6,9 @@ int main(int argc, char *argv[]) {
   // Create a window data type
   SDL_Window *window = nullptr;
 
+  // Grab the window surface
+  SDL_Surface *screen = nullptr;
+
   // Typically we want error checking like this.
   // Not that tutorials often omit these detais.
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -16,6 +19,14 @@ int main(int argc, char *argv[]) {
 
   window =
       SDL_CreateWindow("C++ SDL2 Window", 0, 0, 640, 480, SDL_WINDOW_SHOWN);
+
+  screen = SDL_GetWindowSurface(window);
+
+  SDL_Surface *image = nullptr;
+  image = SDL_LoadBMP("images/out.bmp");
+  SDL_BlitSurface(image, NULL, screen, NULL);
+  SDL_FreeSurface(image);
+  SDL_UpdateWindowSurface(window);
 
   // OpenGL graphics context
   SDL_GLContext context;
