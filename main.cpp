@@ -39,6 +39,11 @@ int main(int argc, char *argv[]) {
       if (event.key.keysym.sym == SDLK_q) {
         gameIsRunning = false;
       }
+
+      const Uint8 *state = SDL_GetKeyboardState(NULL);
+      if (state[SDL_SCANCODE_RIGHT]) {
+        std::cout << "Right arrow key is pressed\n";
+      }
     }
   }
 
